@@ -6,7 +6,12 @@ import Button from "./components/Button"
 
 function App() {
   const [menuItem, setMenuItem] = useState(items)
-  const [button, setButtons] = useState([])
+  const [buttons, setButtons] = useState([])
+
+  const filter = (button) => {
+    const filteredData = items.filter((item) => item.category === button)
+    setMenuItem(filteredData)
+  }
 
   return (
     <div className="App">
@@ -16,7 +21,7 @@ function App() {
           <span> filter</span>
         </h1>
       </div>
-      <Button />
+      <Button filter={filter} />
       <Menu menuItem={menuItem} />
     </div>
   )
