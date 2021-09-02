@@ -1,9 +1,13 @@
-const Button = ({ filter }) => {
+const Button = ({ button, filter }) => {
   return (
-    <div>
-      <button type="button" onClick={() => filter("Tips")}>
-        Tips
-      </button>
+    <div className="buttons">
+      {button.map((cat, i) => {
+        return (
+          <button className="btn" type="button" onClick={() => filter(cat)}>
+            {cat}
+          </button>
+        )
+      })}
     </div>
   )
 }
